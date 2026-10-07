@@ -97,7 +97,7 @@
     add(box, list);
     call('adminReports', { status: state.reportStatus }).then(function (d) {
       clear(list);
-      if (!d.reports.length) return add(list, h('p', { class: 'muted', text: 'No reports here. 🎉' }));
+      if (!d.reports.length) return add(list, h('p', { class: 'muted', text: 'No reports here.' }));
       d.reports.forEach(function (r) {
         var svc = state.services.filter(function (s) { return s.id === r.serviceId; })[0];
         var note = h('input', { type: 'text', placeholder: 'Note (optional)', maxlength: '500', value: r.adminNote || '' });
@@ -215,7 +215,7 @@
       field('Name *', text('name', { max: 150 }), 'Short and clear, e.g. "Renew a driver\'s licence".'),
       field('ID', text('id', { max: 80, readonly: !isNew }), isNew ? 'Leave empty to create from the name. Cannot be changed later.' : 'Cannot be changed.'),
       h('div', { class: 'row2' },
-        h('div', null, field('Category *', select('category', state.categories.map(function (c) { return [c.id, c.icon + ' ' + c.name]; })))),
+        h('div', null, field('Category *', select('category', state.categories.map(function (c) { return [c.id, c.name]; })))),
         h('div', null, field('Sub-category', text('subcategory')))),
       h('div', { class: 'row2' },
         h('div', null, field('Status', select('status', [['draft', 'Draft (hidden)'], ['published', 'Published'], ['archived', 'Archived (hidden)']]))),

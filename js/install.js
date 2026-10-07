@@ -104,7 +104,7 @@
         h('h2', { id: 'install-title', class: 'install-title', text: t('install.title') }),
         h('p', { class: 'install-sub', text: t('install.benefit') }),
         h('div', { class: 'install-actions' },
-          h('button', { class: 'btn btn-install', type: 'button', onclick: install }, '📲 ', t('install')),
+          h('button', { class: 'btn btn-install', type: 'button', onclick: install, text: t('install') }),
           h('button', { class: 'btn btn-ghost btn-small', type: 'button', text: t('install.notNow'), onclick: dismiss }))));
     el.hidden = !available() || bannerDismissed();
     return el;

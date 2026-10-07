@@ -37,15 +37,15 @@ var CONFIG = {
   REPORT_TYPES: ['phone', 'hours', 'location', 'fees', 'steps', 'closed', 'new', 'other'],
 
   CATEGORIES: [
-    { id: 'government', icon: '🏛', name: 'Government', name_gil: 'Tautaeka', description: 'Licences, passports, certificates, tax and public services' },
-    { id: 'health', icon: '🏥', name: 'Health', name_gil: 'Marurung', description: 'Hospitals, clinics, pharmacies and health programmes' },
-    { id: 'jobs', icon: '💼', name: 'Jobs', name_gil: 'Mwakuri', description: "Job seeking, labour mobility and workers' rights" },
-    { id: 'education', icon: '🎓', name: 'Education', name_gil: 'Reirei', description: 'Schools, training and scholarships' },
-    { id: 'transport', icon: '🚤', name: 'Transport', name_gil: 'Mwananga', description: 'Flights, shipping, buses and road transport' },
-    { id: 'business', icon: '🏪', name: 'Business & Services', name_gil: 'Bitineti', description: 'Banks, utilities, trades and local businesses' },
-    { id: 'prices', icon: '💰', name: 'Prices', name_gil: 'Boo', description: 'Where to check costs and fees' },
-    { id: 'emergency', icon: '🆘', name: 'Emergency', name_gil: 'Emergency', description: 'Police, fire, ambulance and disaster information' },
-    { id: 'community', icon: '📢', name: 'Community', name_gil: 'Community', description: 'Churches, groups, notices and support services' }
+    { id: 'government', name: 'Government', name_gil: 'Tautaeka', description: 'Licences, passports, certificates, tax and public services' },
+    { id: 'health', name: 'Health', name_gil: 'Marurung', description: 'Hospitals, clinics, pharmacies and health programmes' },
+    { id: 'jobs', name: 'Jobs', name_gil: 'Mwakuri', description: "Job seeking, labour mobility and workers' rights" },
+    { id: 'education', name: 'Education', name_gil: 'Reirei', description: 'Schools, training and scholarships' },
+    { id: 'transport', name: 'Transport', name_gil: 'Mwananga', description: 'Flights, shipping, buses and road transport' },
+    { id: 'business', name: 'Business & Services', name_gil: 'Bitineti', description: 'Banks, utilities, trades and local businesses' },
+    { id: 'prices', name: 'Prices', name_gil: 'Boo', description: 'Where to check costs and fees' },
+    { id: 'emergency', name: 'Emergency', name_gil: 'Emergency', description: 'Police, fire, ambulance and disaster information' },
+    { id: 'community', name: 'Community', name_gil: 'Community', description: 'Churches, groups, notices and support services' }
   ],
 
   ISLANDS: [

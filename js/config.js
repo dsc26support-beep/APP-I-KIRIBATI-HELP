@@ -23,5 +23,5 @@ window.IKH_CONFIG = {
   // Network timeout for API calls (milliseconds). Kept short for slow connections.
   API_TIMEOUT_MS: 8000,
 
-  APP_VERSION: '1.1.0'
+  APP_VERSION: '1.2.0'
 };

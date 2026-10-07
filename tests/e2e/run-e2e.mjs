@@ -518,6 +518,21 @@ await run('install button fits the header on a 320px Android phone', async () =>
   await context.close();
 });
 
+await run('no emoji or pictogram icons anywhere (only the logo)', async () => {
+  const { context, page } = await newPage({ context: { userAgent: ANDROID_UA } });
+  const pictos = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2190}-\u{21FF}]/u;
+  for (const hash of ['', '#/search?q=passport', '#/service/emergency-police', '#/category/emergency', '#/report?id=passport', '#/about']) {
+    await page.goto(BASE + hash);
+    await page.waitForSelector('main > *');
+    const text = await page.evaluate(() => document.body.innerText);
+    const m = text.match(pictos);
+    assert.equal(m, null, hash + ' contains ' + (m && m[0]));
+  }
+  const imgs = await page.$$eval('img', (els) => els.map((e) => e.getAttribute('src')));
+  assert.ok(imgs.every((s) => /logo\.svg|icon-192\.png/.test(s)), 'only logo images: ' + imgs.join(','));
+  await context.close();
+});
+
 await browser.close();
 server.close();
 

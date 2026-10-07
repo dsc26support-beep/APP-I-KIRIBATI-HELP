@@ -21,7 +21,7 @@ async function render(file, size, padding, bg) {
 }
 await render('icon-192.png', 192, 0, 'transparent');
 await render('icon-512.png', 512, 0, 'transparent');
-await render('apple-touch-icon.png', 180, 0, '#0b5f8a');
+await render('apple-touch-icon.png', 180, 0, '#0B2D4A');
 // Maskable icons need a safe zone: logo at 80% on a full-bleed background.
-await render('maskable-512.png', 512, 52, '#0b5f8a');
+await render('maskable-512.png', 512, 52, '#0B2D4A');
 await browser.close();

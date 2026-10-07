@@ -14,6 +14,7 @@
       'app.tagline': 'Find the help you need in Kiribati.',
       'skip': 'Skip to main content',
       'nav.home': 'Home',
+      'nav.backHome': 'Back to home',
       'nav.emergency': 'Emergency',
       'nav.language': 'Kiribati',
       'nav.languageLabel': 'Read in Kiribati (te taetae ni Kiribati)',

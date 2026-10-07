@@ -3,40 +3,40 @@
 /* Very small phones (e.g. 320px wide) */
 @media (max-width: 360px) {
   body { font-size: 1rem; }
-  .brand-name { font-size: .9rem; }
-  .brand img { width: 26px; height: 26px; }
-  .header-actions .btn-small { padding: 4px 8px; font-size: .8rem; }
+  .brand-name { font-size: .88rem; letter-spacing: .04em; }
+  .brand img { width: 28px; height: 28px; }
+  .header-actions .btn-small { padding: 4px 9px; font-size: .8rem; }
+  .hero { padding: 22px 16px 18px; }
   .hero-title { font-size: 1.6rem; }
   .search-row { flex-direction: column; }
   .search-row .btn-primary { width: 100%; }
-  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-desc { display: none; }
+  .cat-card { min-height: 72px; }
   .fact { grid-template-columns: 1fr; gap: 0; }
   .emergency-box { grid-template-columns: 1fr; }
   .big-call { min-height: 64px; flex-direction: row; gap: 12px; }
+  .install-icon { width: 44px; height: 44px; }
 }
 
-/* Narrow phones: keep the header on one line by hiding the language label length */
+/* Phones: the header wraps onto two lines */
 @media (max-width: 480px) {
-  .header-inner { flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+  .header-inner { flex-wrap: wrap; padding-top: 6px; padding-bottom: 8px; }
   .filters { gap: 8px; }
   .filter { flex: 1 1 140px; }
   .filter select { max-width: none; width: 100%; }
+  .hero .search-row { flex-direction: column; }
+  .hero .search-row .btn-primary { width: 100%; }
 }
 
 /* Tablets and up */
 @media (min-width: 640px) {
-  .hero { padding: 2.5rem 0 1.25rem; }
-  .hero-title { font-size: 2.4rem; }
+  .hero { margin: 24px 0 0; padding: 40px 36px 32px; }
+  .hero-title { font-size: 2.6rem; }
   .cat-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .cat-card { min-height: 110px; font-size: 1rem; }
-  .cat-icon { font-size: 2.1rem; }
-  .card { padding: 18px 22px; }
+  .cat-card { min-height: 116px; }
+  .card { padding: 22px 24px 16px; }
 }
 
 @media (min-width: 900px) {
-  .wrap { max-width: 860px; }
-}
-
-@media (max-width: 360px) {
-  .install-icon { width: 44px; height: 44px; }
+  .wrap { max-width: 880px; }
 }

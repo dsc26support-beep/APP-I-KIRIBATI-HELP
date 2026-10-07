@@ -93,14 +93,14 @@
   function actionButtons(s, state) {
     var items = [];
     var tel = telHref(s.phone);
-    if (tel) items.push(h('a', { class: 'btn btn-call', href: tel }, '📞 ', t('card.call') + ' ' + s.phone));
+    if (tel) items.push(h('a', { class: 'btn btn-call', href: tel }, t('card.call') + ' ' + s.phone));
     var mail = mailHref(s.email);
-    if (mail) items.push(h('a', { class: 'btn', href: mail }, '✉️ ', t('card.sendEmail')));
+    if (mail) items.push(h('a', { class: 'btn', href: mail, text: t('card.sendEmail') }));
     var web = safeUrl(s.website);
-    if (web) items.push(h('a', { class: 'btn', href: web, target: '_blank', rel: 'noopener noreferrer' }, '🌐 ', t('card.openWebsite')));
+    if (web) items.push(h('a', { class: 'btn', href: web, target: '_blank', rel: 'noopener noreferrer', text: t('card.openWebsite') }));
     var map = mapHref(s);
-    if (map) items.push(h('a', { class: 'btn', href: map, target: '_blank', rel: 'noopener noreferrer' }, '📍 ', t('card.map')));
-    items.push(h('button', { class: 'btn btn-ghost', type: 'button', onclick: function (e) { share(s, e.currentTarget); } }, '🔗 ', t('card.share')));
+    if (map) items.push(h('a', { class: 'btn', href: map, target: '_blank', rel: 'noopener noreferrer', text: t('card.map') }));
+    items.push(h('button', { class: 'btn btn-ghost', type: 'button', onclick: function (e) { share(s, e.currentTarget); }, text: t('card.share') }));
     return h('div', { class: 'actions' }, items);
   }
 
@@ -140,7 +140,7 @@
   }
 
   function reportLink(s) {
-    return h('a', { class: 'report-link', href: '#/report?id=' + encodeURIComponent(s.id) }, '⚠️ ', t('card.report'));
+    return h('a', { class: 'report-link', href: '#/report?id=' + encodeURIComponent(s.id), text: t('card.report') });
   }
 
   // ---------- service card ----------
@@ -171,7 +171,7 @@
     var titleTag = opts.full ? 'h1' : 'h3';
     return h('article', { class: 'card service-card' + (opts.full ? ' full' : ''), 'data-id': s.id },
       h('div', { class: 'card-top' },
-        h('span', { class: 'chip' }, cat ? cat.icon + ' ' + IKH.i18n.catName(cat) : s.category),
+        h('span', { class: 'chip', 'data-cat': s.category, text: cat ? IKH.i18n.catName(cat) : s.category }),
         badge(s)),
       h(titleTag, { class: 'card-title' },
         opts.full ? s.name : h('a', { href: '#/service/' + encodeURIComponent(s.id), text: s.name })),
@@ -195,11 +195,10 @@
   function serviceRow(s, state, showDate) {
     var cat = catById(state, s.category);
     return h('li', null,
-      h('a', { class: 'row-link', href: '#/service/' + encodeURIComponent(s.id) },
-        h('span', { class: 'row-icon', 'aria-hidden': 'true', text: cat ? cat.icon : '•' }),
+      h('a', { class: 'row-link', href: '#/service/' + encodeURIComponent(s.id), 'data-cat': s.category },
         h('span', { class: 'row-text' },
           h('span', { class: 'row-title', text: s.name }),
-          showDate && s.updatedAt ? h('span', { class: 'row-sub', text: formatDate(s.updatedAt) }) : null)));
+          h('span', { class: 'row-sub', text: (cat ? IKH.i18n.catName(cat) : '') + (showDate && s.updatedAt ? ' · ' + formatDate(s.updatedAt) : '') }))));
   }
 
   function contactRow(s) {
@@ -207,7 +206,7 @@
     return h('li', { class: 'contact-row' },
       h('a', { class: 'row-link', href: '#/service/' + encodeURIComponent(s.id) },
         h('span', { class: 'row-title', text: s.name })),
-      tel ? h('a', { class: 'btn btn-call btn-small', href: tel, 'aria-label': t('card.call') + ' ' + s.name + ' ' + s.phone }, '📞 ', s.phone) : null);
+      tel ? h('a', { class: 'btn btn-call btn-small', href: tel, 'aria-label': t('card.call') + ' ' + s.name + ' ' + s.phone, text: t('card.call') + ' ' + s.phone }) : null);
   }
 
   // ---------- search form ----------
@@ -240,9 +239,9 @@
 
   function categoryGrid(state) {
     return h('ul', { class: 'cat-grid' }, state.data.categories.map(function (c) {
-      return h('li', null, h('a', { class: 'cat-card' + (c.id === 'emergency' ? ' cat-emergency' : ''), href: '#/category/' + c.id },
-        h('span', { class: 'cat-icon', 'aria-hidden': 'true', text: c.icon }),
-        h('span', { class: 'cat-name', text: IKH.i18n.catName(c) })));
+      return h('li', null, h('a', { class: 'cat-card' + (c.id === 'emergency' ? ' cat-emergency' : ''), href: '#/category/' + c.id, 'data-cat': c.id },
+        h('span', { class: 'cat-name', text: IKH.i18n.catName(c) }),
+        c.description ? h('span', { class: 'cat-desc', text: c.description }) : null));
     }));
   }
 
@@ -291,7 +290,7 @@
         searchForm(state, '', {}, false),
         examples()),
       IKH.install.banner(),
-      h('a', { class: 'emergency-banner', href: '#/category/emergency' }, '🆘 ', t('home.emergencyBanner')),
+      h('a', { class: 'emergency-banner', href: '#/category/emergency', text: t('home.emergencyBanner') }),
       h('section', { 'aria-labelledby': 'h-cats' }, sectionTitle(t('home.categories'), 'h-cats'), categoryGrid(state)),
       popular.length ? h('section', { 'aria-labelledby': 'h-pop' }, sectionTitle(t('home.popular'), 'h-pop'),
         h('ul', { class: 'rows' }, popular.map(function (s) { return serviceRow(s, state); }))) : null,
@@ -339,8 +338,8 @@
       .sort(function (a, b) { return (b.important ? 1 : 0) - (a.important ? 1 : 0) || (b.popular ? 1 : 0) - (a.popular ? 1 : 0) || a.name.localeCompare(b.name); });
 
     append(main, [
-      h('p', { class: 'crumbs' }, h('a', { href: '#/', text: '← ' + t('nav.home') })),
-      h('h1', { class: 'page-title' }, h('span', { 'aria-hidden': 'true', text: cat.icon + ' ' }), IKH.i18n.catName(cat)),
+      h('p', { class: 'crumbs' }, h('a', { href: '#/', text: t('nav.backHome') })),
+      h('h1', { class: 'page-title', 'data-cat': catId, text: IKH.i18n.catName(cat) }),
       cat.description ? h('p', { class: 'lead', text: cat.description }) : null,
       catId === 'emergency' ? h('div', { class: 'emergency-box' },
         [['192', 'Police'], ['193', 'Fire'], ['194', 'Ambulance']].map(function (n) {
@@ -361,7 +360,7 @@
     append(main, [
       h('p', { class: 'crumbs' }, h('a', { href: '#/', onclick: function (e) {
         if (IKH.app.hasHistory()) { e.preventDefault(); history.back(); }
-      }, text: '← ' + t('back') })),
+      }, text: t('back') })),
       serviceCard(s, state, { full: true })
     ]);
     return s;
@@ -420,7 +419,7 @@
       submit, status);
 
     append(main, [
-      h('p', { class: 'crumbs' }, h('a', { href: service ? '#/service/' + encodeURIComponent(service.id) : '#/', text: '← ' + t('back') })),
+      h('p', { class: 'crumbs' }, h('a', { href: service ? '#/service/' + encodeURIComponent(service.id) : '#/', text: t('back') })),
       h('h1', { class: 'page-title', text: isNew && !service ? t('report.suggestTitle') : t('report.title') }),
       h('p', { class: 'lead', text: t('report.intro') }),
       form
@@ -483,13 +482,13 @@
   function staticPage(main, state, name) {
     var page = PAGES[name];
     if (!page) return notFound(main);
-    var nodes = [h('p', { class: 'crumbs' }, h('a', { href: '#/', text: '← ' + t('nav.home') })), h('h1', { class: 'page-title', text: page.title })];
+    var nodes = [h('p', { class: 'crumbs' }, h('a', { href: '#/', text: t('nav.backHome') })), h('h1', { class: 'page-title', text: page.title })];
     page.body.forEach(function (b) {
       if (b[0] === 'ul') nodes.push(h('ul', { class: 'prose-list' }, b[1].map(function (x) { return h('li', { text: x }); })));
       else if (b[0] === 'contact') {
         var mail = mailHref(window.IKH_CONFIG && window.IKH_CONFIG.CONTACT_EMAIL);
         nodes.push(h('p', { class: 'actions' },
-          mail ? h('a', { class: 'btn', href: mail }, '✉️ ', window.IKH_CONFIG.CONTACT_EMAIL) : null,
+          mail ? h('a', { class: 'btn', href: mail, text: window.IKH_CONFIG.CONTACT_EMAIL }) : null,
           h('a', { class: 'btn btn-primary', href: '#/report?type=other', text: t('report.title') }),
           h('a', { class: 'btn', href: '#/report?type=new', text: t('report.suggestTitle') })));
       } else nodes.push(h(b[0], { text: b[1] }));
@@ -506,7 +505,7 @@
     });
     var list = Object.keys(map).map(function (k) { return map[k]; }).sort(function (a, b) { return b.count - a.count || a.name.localeCompare(b.name); });
     append(main, h('div', { class: 'prose' },
-      h('p', { class: 'crumbs' }, h('a', { href: '#/', text: '← ' + t('nav.home') })),
+      h('p', { class: 'crumbs' }, h('a', { href: '#/', text: t('nav.backHome') })),
       h('h1', { class: 'page-title', text: 'Sources' }),
       h('p', { text: 'Where our information comes from. Each entry also shows its own source and the date it was last verified.' }),
       state.data.meta && state.data.meta.notice ? h('p', { class: 'warn', text: state.data.meta.notice }) : null,

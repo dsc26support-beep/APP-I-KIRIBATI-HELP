@@ -1,19 +1,19 @@
 {
   "meta": {
-    "version": "2026.10.06-000000",
-    "updatedAt": "2026-10-06",
+    "version": "2026.10.07-120000",
+    "updatedAt": "2026-10-07",
     "notice": "Starter data. Entries marked 'unverified' have NOT been checked with the provider. Confirm details with the official source before relying on them."
   },
   "categories": [
-    { "id": "government", "icon": "🏛", "name": "Government", "name_gil": "Tautaeka", "description": "Licences, passports, certificates, tax and public services" },
-    { "id": "health", "icon": "🏥", "name": "Health", "name_gil": "Marurung", "description": "Hospitals, clinics, pharmacies and health programmes" },
-    { "id": "jobs", "icon": "💼", "name": "Jobs", "name_gil": "Mwakuri", "description": "Job seeking, labour mobility and workers' rights" },
-    { "id": "education", "icon": "🎓", "name": "Education", "name_gil": "Reirei", "description": "Schools, training and scholarships" },
-    { "id": "transport", "icon": "🚤", "name": "Transport", "name_gil": "Mwananga", "description": "Flights, shipping, buses and road transport" },
-    { "id": "business", "icon": "🏪", "name": "Business & Services", "name_gil": "Bitineti", "description": "Banks, utilities, trades and local businesses" },
-    { "id": "prices", "icon": "💰", "name": "Prices", "name_gil": "Boo", "description": "Where to check costs and fees" },
-    { "id": "emergency", "icon": "🆘", "name": "Emergency", "name_gil": "Emergency", "description": "Police, fire, ambulance and disaster information" },
-    { "id": "community", "icon": "📢", "name": "Community", "name_gil": "Community", "description": "Churches, groups, notices and support services" }
+    { "id": "government", "name": "Government", "name_gil": "Tautaeka", "description": "Licences, passports, certificates, tax and public services" },
+    { "id": "health", "name": "Health", "name_gil": "Marurung", "description": "Hospitals, clinics, pharmacies and health programmes" },
+    { "id": "jobs", "name": "Jobs", "name_gil": "Mwakuri", "description": "Job seeking, labour mobility and workers' rights" },
+    { "id": "education", "name": "Education", "name_gil": "Reirei", "description": "Schools, training and scholarships" },
+    { "id": "transport", "name": "Transport", "name_gil": "Mwananga", "description": "Flights, shipping, buses and road transport" },
+    { "id": "business", "name": "Business & Services", "name_gil": "Bitineti", "description": "Banks, utilities, trades and local businesses" },
+    { "id": "prices", "name": "Prices", "name_gil": "Boo", "description": "Where to check costs and fees" },
+    { "id": "emergency", "name": "Emergency", "name_gil": "Emergency", "description": "Police, fire, ambulance and disaster information" },
+    { "id": "community", "name": "Community", "name_gil": "Community", "description": "Churches, groups, notices and support services" }
   ],
   "islands": [
     "South Tarawa", "North Tarawa", "Abaiang", "Abemama", "Aranuka", "Arorae", "Banaba", "Beru",
@@ -42,7 +42,7 @@
       "sourceUrl": "https://www.smartraveller.gov.au/destinations/pacific/kiribati",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["police", "crime", "danger", "violence", "theft", "stolen", "accident", "emergency", "help", "polis"],
       "popular": true,
       "important": true
@@ -68,7 +68,7 @@
       "sourceUrl": "https://www.smartraveller.gov.au/destinations/pacific/kiribati",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["fire", "burning", "smoke", "trapped", "emergency", "firefighter"],
       "popular": false,
       "important": true
@@ -94,7 +94,7 @@
       "sourceUrl": "https://www.smartraveller.gov.au/destinations/pacific/kiribati",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["ambulance", "injury", "hurt", "bleeding", "unconscious", "medical emergency", "accident", "heart", "birth"],
       "popular": true,
       "important": true
@@ -120,7 +120,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["disaster", "king tide", "flood", "storm", "cyclone", "drought", "tsunami", "weather", "warning", "ndmo"],
       "popular": false,
       "important": true
@@ -146,7 +146,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["driver", "drivers", "licence", "license", "driving", "renew", "renewal", "expired", "car", "motorbike", "laisenti"],
       "popular": true,
       "important": false
@@ -172,7 +172,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["driver", "licence", "license", "learner", "permit", "driving test", "new", "first", "motorbike", "car"],
       "popular": false,
       "important": false
@@ -198,7 +198,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["passport", "travel document", "immigration", "renew", "overseas", "travel", "visa"],
       "popular": true,
       "important": false
@@ -224,7 +224,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["birth", "certificate", "register", "registration", "baby", "civil", "documents", "death certificate", "marriage certificate"],
       "popular": true,
       "important": false
@@ -250,7 +250,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["kpf", "provident", "fund", "retirement", "pension", "savings", "superannuation", "withdraw"],
       "popular": false,
       "important": false
@@ -276,7 +276,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["business", "register", "company", "licence", "license", "trade", "shop", "start a business", "bitineti"],
       "popular": false,
       "important": false
@@ -302,7 +302,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["hospital", "tch", "nawerewere", "doctor", "emergency", "maternity", "sick", "clinic", "outpatient", "health"],
       "popular": true,
       "important": true
@@ -328,7 +328,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["clinic", "health centre", "health center", "dispensary", "nurse", "doctor", "vaccination", "immunisation", "check-up", "sick", "baby", "family planning"],
       "popular": true,
       "important": false
@@ -354,7 +354,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["hospital", "kiritimati", "christmas island", "london", "line islands", "doctor", "sick"],
       "popular": false,
       "important": false
@@ -380,7 +380,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["pharmacy", "medicine", "chemist", "drugs", "prescription", "tablets", "panadol"],
       "popular": false,
       "important": false
@@ -406,7 +406,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["mental health", "counselling", "counseling", "depression", "stress", "anxiety", "suicide", "self-harm", "alcohol", "drugs", "support"],
       "popular": false,
       "important": false
@@ -432,7 +432,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["job", "jobs", "work", "employment", "vacancy", "vacancies", "career", "cv", "apply", "unemployed", "mwakuri"],
       "popular": true,
       "important": false
@@ -458,7 +458,7 @@
       "sourceUrl": "https://www.palmscheme.gov.au",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["palm", "australia", "seasonal work", "labour mobility", "labor mobility", "overseas work", "farm work", "job"],
       "popular": true,
       "important": false
@@ -484,7 +484,7 @@
       "sourceUrl": "https://www.immigration.govt.nz",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["rse", "new zealand", "nz", "seasonal work", "labour mobility", "overseas work", "fruit picking", "job"],
       "popular": false,
       "important": false
@@ -510,7 +510,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["seafarer", "sailor", "ship", "marine", "mtc", "betio", "training", "fishing", "job"],
       "popular": false,
       "important": false
@@ -536,7 +536,7 @@
       "sourceUrl": "https://www.dfat.gov.au/people-to-people/australia-awards",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["scholarship", "scholarships", "study", "university", "overseas study", "australia awards", "bursary", "education"],
       "popular": true,
       "important": false
@@ -562,7 +562,7 @@
       "sourceUrl": "https://www.usp.ac.fj",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["usp", "university", "degree", "study", "foundation", "college", "enrol", "enroll"],
       "popular": false,
       "important": false
@@ -588,7 +588,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["kit", "technical", "vocational", "trade", "training", "carpentry", "plumbing", "electrician", "mechanic course", "tvet"],
       "popular": false,
       "important": false
@@ -614,7 +614,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["school", "enrol", "enroll", "enrolment", "primary", "secondary", "student", "child", "education", "reirei"],
       "popular": false,
       "important": false
@@ -640,7 +640,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["flight", "plane", "air kiribati", "airline", "airport", "bonriki", "fly", "outer islands", "ticket", "booking"],
       "popular": true,
       "important": false
@@ -666,7 +666,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["international", "flight", "fiji", "nauru", "hawaii", "overseas", "travel", "airport", "airline"],
       "popular": false,
       "important": false
@@ -692,7 +692,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["ship", "boat", "ferry", "shipping", "kssl", "cargo", "betio", "port", "outer islands", "vessel", "booti"],
       "popular": true,
       "important": false
@@ -718,7 +718,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["bus", "buses", "minibus", "transport", "fare", "betio", "bonriki", "bairiki", "taxi"],
       "popular": false,
       "important": false
@@ -744,7 +744,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["mechanic", "car repair", "garage", "workshop", "motorbike", "engine", "outboard", "repair", "tyre", "tire"],
       "popular": true,
       "important": false
@@ -770,7 +770,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["electricity", "power", "water", "pub", "utilities", "outage", "blackout", "power card", "token", "bill", "meter"],
       "popular": true,
       "important": true
@@ -796,7 +796,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["bank", "account", "savings", "anz", "dbk", "money", "deposit", "atm", "transfer", "remittance"],
       "popular": false,
       "important": false
@@ -822,7 +822,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["remittance", "money transfer", "send money", "receive money", "western union", "overseas", "bank", "transfer"],
       "popular": false,
       "important": false
@@ -848,7 +848,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["price", "prices", "cost", "how much", "fuel", "petrol", "rice", "flour", "sugar", "food", "store", "boo"],
       "popular": false,
       "important": false
@@ -874,7 +874,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["fee", "fees", "cost", "price", "how much", "government", "receipt", "payment"],
       "popular": false,
       "important": false
@@ -900,7 +900,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["domestic violence", "family violence", "abuse", "safe", "shelter", "women", "children", "gbv", "help", "hurt"],
       "popular": false,
       "important": true
@@ -926,7 +926,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["council", "island council", "btc", "tuc", "local government", "rubbish", "waste", "market", "community"],
       "popular": false,
       "important": false
@@ -952,7 +952,7 @@
       "sourceUrl": "",
       "lastVerified": null,
       "verification": "unverified",
-      "updatedAt": "2026-10-06",
+      "updatedAt": "2026-10-07",
       "keywords": ["notice", "event", "church", "sport", "meeting", "announcement", "community", "maneaba"],
       "popular": false,
       "important": false

@@ -26,10 +26,18 @@ A fast, mobile-first, low-data Progressive Web App that helps people in Kiribati
 - **Home page** – search, examples, 9 categories, Popular services, Recently updated, Important contacts, emergency numbers.
 - **Trust** – every entry shows its source and when it was last verified; unverified entries are clearly marked.
 - **Report incorrect information** – works offline (queued, sent automatically later).
-- **Install app button** – a yellow “📲 Install app” button in the header and a “Get the I-Kiribati Help app” card on the home page. On Android it opens the phone's own install prompt; on iPhone and browsers without that prompt it shows simple step-by-step instructions. Hidden once installed; “Not now” hides the card for 14 days. Code: `js/install.js`.
+- **Install app button** – an “Install app” button in the header and a “Get the I-Kiribati Help app” card on the home page. On Android it opens the phone's own install prompt; on iPhone and browsers without that prompt it shows simple step-by-step instructions. Hidden once installed; “Not now” hides the card for 14 days. Code: `js/install.js`.
 - **English + Kiribati** interface (Kiribati is a first draft – see [Translation review](#translation-review)).
 - **Admin page** (`/admin/`) – password-protected: handle reports, add/edit/verify services, see what people search for (including searches with no results).
 - **Privacy-friendly statistics** – no cookies, no trackers, no personal data; respects “Do Not Track”.
+
+## Design
+
+- **No icons except the logo.** Categories are told apart by colour accents and short descriptions, and buttons use plain words (“Call 192”, “Map”, “Share”). A browser test fails if an emoji icon is added back.
+- **Palette** (all tokens at the top of `css/main.css`): deep ocean `#0B2D4A` → lagoon teal `#0B6E86` / `#16B3A3`, sunrise accent `#FFD166` → coral `#FF7A59`, and one modern shade per category. All text colours meet WCAG AA contrast (4.5:1).
+- **Motion:** slow “aurora” light in the hero, gentle page fade-in, hover lift on cards; all switched off when the phone asks for reduced motion.
+- Automatic **dark mode**; system fonts only (nothing extra to download).
+- Logo: `assets/logo.svg`. After changing it run `npm run icons` to rebuild the app icons.
 
 ## Project structure
 

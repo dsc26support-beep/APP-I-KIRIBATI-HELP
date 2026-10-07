@@ -4,7 +4,7 @@
  * IMPORTANT: change CACHE_VERSION every time you deploy changed files,
  * so phones download the new version.
  */
-var CACHE_VERSION = 'ikh-v1.1.0';
+var CACHE_VERSION = 'ikh-v1.2.0';
 var APP_SHELL = [
   './',
   'index.html',
