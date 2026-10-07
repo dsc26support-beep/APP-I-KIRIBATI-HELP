@@ -4,7 +4,7 @@
  * IMPORTANT: change CACHE_VERSION every time you deploy changed files,
  * so phones download the new version.
  */
-var CACHE_VERSION = 'ikh-v1.0.0';
+var CACHE_VERSION = 'ikh-v1.1.0';
 var APP_SHELL = [
   './',
   'index.html',
@@ -17,6 +17,7 @@ var APP_SHELL = [
   'js/api.js',
   'js/filters.js',
   'js/analytics.js',
+  'js/install.js',
   'js/ui.js',
   'js/app.js',
   'data/fallback-data.json',

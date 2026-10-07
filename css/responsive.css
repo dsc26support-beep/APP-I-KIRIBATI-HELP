@@ -17,7 +17,7 @@
 
 /* Narrow phones: keep the header on one line by hiding the language label length */
 @media (max-width: 480px) {
-  .header-inner { flex-wrap: wrap; padding: 6px 0; }
+  .header-inner { flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
   .filters { gap: 8px; }
   .filter { flex: 1 1 140px; }
   .filter select { max-width: none; width: 100%; }
@@ -35,4 +35,8 @@
 
 @media (min-width: 900px) {
   .wrap { max-width: 860px; }
+}
+
+@media (max-width: 360px) {
+  .install-icon { width: 44px; height: 44px; }
 }

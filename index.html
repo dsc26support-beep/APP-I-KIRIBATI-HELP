@@ -29,7 +29,7 @@
       </a>
       <nav class="header-actions" aria-label="Main">
         <span id="offline-badge" class="offline-badge" hidden>Offline</span>
-        <button id="install-btn" class="btn btn-small btn-ghost" type="button" hidden data-i18n="install">Install app</button>
+        <button id="install-btn" class="btn btn-small btn-install-header" type="button" hidden data-install="button"><span aria-hidden="true">📲</span> <span data-i18n="install">Install app</span></button>
         <a class="btn btn-small btn-sos" href="#/category/emergency"><span aria-hidden="true">🆘</span> <span data-i18n="nav.emergency">Emergency</span></a>
         <button id="lang-btn" class="btn btn-small btn-ghost" type="button" data-i18n="nav.language" data-i18n-attr="aria-label:nav.languageLabel" lang="gil">Kiribati</button>
       </nav>
@@ -67,6 +67,7 @@
   <script src="js/api.js" defer></script>
   <script src="js/filters.js" defer></script>
   <script src="js/analytics.js" defer></script>
+  <script src="js/install.js" defer></script>
   <script src="js/ui.js" defer></script>
   <script src="js/app.js" defer></script>
 </body>

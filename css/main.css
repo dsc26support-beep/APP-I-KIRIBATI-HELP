@@ -316,3 +316,30 @@ img { max-width: 100%; }
   .card { box-shadow: none; border: 1px solid #999; break-inside: avoid; }
   body { background: #fff; color: #000; }
 }
+
+/* ---------- install app ---------- */
+
+.btn-install-header { background: var(--sun); border-color: var(--sun); color: #1a1f24; font-weight: 700; }
+.btn-install-header:hover { color: #1a1f24; filter: brightness(1.05); }
+
+.install-card {
+  display: flex; gap: 14px; align-items: flex-start;
+  margin: 1rem 0; padding: 14px 16px; border-radius: var(--radius);
+  background: var(--blue-soft); border: 1px solid var(--blue);
+}
+.install-icon { flex: none; border-radius: 12px; }
+.install-title { font-size: 1.1rem; margin: 0 0 2px; }
+.install-sub { margin: 0 0 10px; font-size: .95rem; }
+.install-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn-install { background: var(--green); border-color: var(--green); color: #fff; font-size: 1rem; padding: 10px 18px; }
+.btn-install:hover { color: #fff; filter: brightness(1.08); }
+@media (prefers-color-scheme: dark) { .btn-install, .btn-install:hover { color: #0f1418; } }
+
+.install-dialog {
+  max-width: min(420px, calc(100% - 32px)); border: 0; border-radius: 16px; padding: 20px;
+  background: var(--card); color: var(--text); box-shadow: 0 10px 40px rgba(0, 0, 0, .3);
+}
+.install-dialog::backdrop { background: rgba(0, 0, 0, .45); }
+.install-dialog h2 { font-size: 1.25rem; }
+.install-steps { padding-left: 1.3rem; }
+.install-steps li { margin: 8px 0; }

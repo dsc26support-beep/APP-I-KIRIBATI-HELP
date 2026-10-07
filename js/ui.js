@@ -290,6 +290,7 @@
         h('p', { class: 'hero-tagline', text: t('app.tagline') }),
         searchForm(state, '', {}, false),
         examples()),
+      IKH.install.banner(),
       h('a', { class: 'emergency-banner', href: '#/category/emergency' }, '🆘 ', t('home.emergencyBanner')),
       h('section', { 'aria-labelledby': 'h-cats' }, sectionTitle(t('home.categories'), 'h-cats'), categoryGrid(state)),
       popular.length ? h('section', { 'aria-labelledby': 'h-pop' }, sectionTitle(t('home.popular'), 'h-pop'),

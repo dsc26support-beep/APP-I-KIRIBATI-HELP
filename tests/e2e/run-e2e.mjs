@@ -408,6 +408,116 @@ await run('admin page: login, list services, save an edit', async () => {
   await context.close();
 });
 
+const ANDROID_UA = 'Mozilla/5.0 (Linux; Android 13; SM-A135F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36';
+const IPHONE_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1';
+
+// Simulates Chrome's install prompt event on Android. Like real Chrome, it is only
+// offered while the app is not installed (here: once per test).
+function fakeInstallPrompt(outcome) {
+  return `window.__prompted = 0;
+    if (!sessionStorage.getItem('fakePromptShown')) window.addEventListener('DOMContentLoaded', () => setTimeout(() => {
+      sessionStorage.setItem('fakePromptShown', '1');
+      const e = new Event('beforeinstallprompt', { cancelable: true });
+      e.prompt = () => { window.__prompted++; return Promise.resolve(); };
+      e.userChoice = Promise.resolve({ outcome: '${outcome}' });
+      window.dispatchEvent(e);
+    }, 50));`;
+}
+
+await run('Android: install card + header button open the native install prompt', async () => {
+  const { context, page } = await newPage({ context: { userAgent: ANDROID_UA } });
+  await page.addInitScript(fakeInstallPrompt('accepted'));
+  await page.goto(BASE);
+  await page.waitForSelector('.install-card:not([hidden])');
+  assert.equal(await page.isVisible('#install-btn'), true, 'header button visible');
+  assert.match(await page.textContent('.install-card'), /Get the I-Kiribati Help app/);
+  await page.click('.install-card .btn-install');
+  await page.waitForFunction(() => window.__prompted === 1);
+  await page.waitForSelector('.install-card', { state: 'hidden' });
+  assert.equal(await page.isVisible('#install-btn'), false, 'hidden after install');
+  await page.reload();
+  await page.waitForSelector('.cat-grid');
+  assert.equal(await page.isVisible('.install-card'), false, 'stays hidden after install');
+  assert.deepEqual(page.errors, []);
+  await context.close();
+});
+
+await run('Android: if the install is cancelled the button stays available', async () => {
+  const { context, page } = await newPage({ context: { userAgent: ANDROID_UA } });
+  await page.addInitScript(fakeInstallPrompt('dismissed'));
+  await page.goto(BASE);
+  await page.waitForSelector('.install-card:not([hidden])');
+  await page.click('#install-btn');
+  await page.waitForFunction(() => window.__prompted === 1);
+  await page.waitForTimeout(100);
+  assert.equal(await page.isVisible('#install-btn'), true);
+  await context.close();
+});
+
+await run('Android browser without an install prompt shows step-by-step help', async () => {
+  const { context, page } = await newPage({ context: { userAgent: ANDROID_UA } });
+  await page.goto(BASE);
+  await page.waitForSelector('.install-card:not([hidden])');
+  await page.click('.install-card .btn-install');
+  await page.waitForSelector('#install-help[open]');
+  assert.match(await page.textContent('#install-help'), /⋮ menu/);
+  assert.match(await page.textContent('#install-help'), /Add to Home screen/);
+  await page.click('#install-help .btn-primary');
+  await page.waitForSelector('#install-help', { state: 'detached' });
+  await context.close();
+});
+
+await run('iPhone shows "Add to Home Screen" instructions', async () => {
+  const { context, page } = await newPage({ context: { userAgent: IPHONE_UA } });
+  await page.goto(BASE);
+  await page.waitForSelector('.install-card:not([hidden])');
+  await page.click('#install-btn');
+  await page.waitForSelector('#install-help[open]');
+  assert.match(await page.textContent('#install-help'), /Share button/);
+  await context.close();
+});
+
+await run('"Not now" hides the card for later visits; header button remains', async () => {
+  const { context, page } = await newPage({ context: { userAgent: ANDROID_UA } });
+  await page.goto(BASE);
+  await page.waitForSelector('.install-card:not([hidden])');
+  await page.click('.install-card .btn-ghost');
+  await page.waitForSelector('.install-card', { state: 'hidden' });
+  await page.reload();
+  await page.waitForSelector('.cat-grid');
+  assert.equal(await page.isVisible('.install-card'), false);
+  assert.equal(await page.isVisible('#install-btn'), true);
+  await context.close();
+});
+
+await run('no install button on desktop without a prompt, or when opened as the installed app', async () => {
+  const desk = await newPage({ context: { viewport: { width: 1200, height: 800 }, isMobile: false, hasTouch: false } });
+  await desk.page.goto(BASE);
+  await desk.page.waitForSelector('.cat-grid');
+  assert.equal(await desk.page.isVisible('.install-card'), false);
+  assert.equal(await desk.page.isVisible('#install-btn'), false);
+  await desk.context.close();
+
+  const app = await newPage({ context: { userAgent: ANDROID_UA } });
+  await app.page.addInitScript(() => {
+    const orig = window.matchMedia.bind(window);
+    window.matchMedia = (q) => (q.includes('display-mode: standalone') ? { matches: true, media: q, addEventListener() {}, removeEventListener() {} } : orig(q));
+  });
+  await app.page.goto(BASE);
+  await app.page.waitForSelector('.cat-grid');
+  assert.equal(await app.page.isVisible('.install-card'), false);
+  assert.equal(await app.page.isVisible('#install-btn'), false);
+  await app.context.close();
+});
+
+await run('install button fits the header on a 320px Android phone', async () => {
+  const { context, page } = await newPage({ context: { userAgent: ANDROID_UA, viewport: { width: 320, height: 640 } } });
+  await page.goto(BASE);
+  await page.waitForSelector('.install-card:not([hidden])');
+  await noHorizontalScroll(page);
+  await context.close();
+});
+
 await browser.close();
 server.close();
 

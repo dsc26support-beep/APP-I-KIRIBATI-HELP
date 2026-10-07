@@ -26,6 +26,7 @@ A fast, mobile-first, low-data Progressive Web App that helps people in Kiribati
 - **Home page** – search, examples, 9 categories, Popular services, Recently updated, Important contacts, emergency numbers.
 - **Trust** – every entry shows its source and when it was last verified; unverified entries are clearly marked.
 - **Report incorrect information** – works offline (queued, sent automatically later).
+- **Install app button** – a yellow “📲 Install app” button in the header and a “Get the I-Kiribati Help app” card on the home page. On Android it opens the phone's own install prompt; on iPhone and browsers without that prompt it shows simple step-by-step instructions. Hidden once installed; “Not now” hides the card for 14 days. Code: `js/install.js`.
 - **English + Kiribati** interface (Kiribati is a first draft – see [Translation review](#translation-review)).
 - **Admin page** (`/admin/`) – password-protected: handle reports, add/edit/verify services, see what people search for (including searches with no results).
 - **Privacy-friendly statistics** – no cookies, no trackers, no personal data; respects “Do Not Track”.
@@ -168,7 +169,7 @@ Before telling the public about the app:
 - [ ] Set `API_URL`, `CONTACT_EMAIL` and `SITE_URL` in `js/config.js`; update `robots.txt` and `sitemap.xml` with the real domain.
 - [ ] Set the admin password (`setAdminPassword()`), add the daily `cleanupOldData` trigger.
 - [ ] Check with a lawyer or advisor whether the name and wording could be mistaken for an official government service.
-- [ ] Test on a real low-end Android phone on a slow mobile connection, and install it to the home screen.
+- [ ] Test on a real low-end Android phone on a slow mobile connection, and install it with the **Install app** button. (Android only offers its install prompt on the live `https://` site, not on `localhost` previews in all browsers.)
 - [ ] Bump `CACHE_VERSION` in `sw.js` on every deploy.
 
 ## Licence

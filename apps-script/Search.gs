@@ -36,7 +36,7 @@ function apiTrack_(payload) {
 }
 
 function logEvents_(events) {
-  var allowedTypes = ['search', 'category', 'service', 'api-search'];
+  var allowedTypes = ['search', 'category', 'service', 'api-search', 'install'];
   var rows = [];
   events.forEach(function (e) {
     if (!e || allowedTypes.indexOf(e.t) === -1) return;

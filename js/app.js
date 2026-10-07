@@ -105,6 +105,7 @@
     }
 
     document.title = title;
+    IKH.install.refresh();
     IKH.i18n.apply(document.querySelector('.site-header'));
     IKH.i18n.apply(document.querySelector('.site-footer'));
 
@@ -158,17 +159,8 @@
 
   function setupInstall() {
     var btn = document.getElementById('install-btn');
-    var deferred = null;
-    window.addEventListener('beforeinstallprompt', function (e) {
-      e.preventDefault();
-      deferred = e;
-      if (btn) btn.hidden = false;
-    });
-    if (btn) btn.addEventListener('click', function () {
-      if (!deferred) return;
-      deferred.prompt();
-      deferred.userChoice.finally(function () { deferred = null; btn.hidden = true; });
-    });
+    if (btn) btn.addEventListener('click', function () { IKH.install.install(); });
+    IKH.install.refresh();
   }
 
   function init() {
