@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /apps-script/
+Disallow: /tests/
+Disallow: /tools/
+
+Sitemap: https://ikiribatihelp.pages.dev/sitemap.xml

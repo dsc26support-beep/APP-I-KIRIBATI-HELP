@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>I-Kiribati Help – Find the help you need in Kiribati</title>
+  <meta name="description" content="Find government services, health services, jobs, transport, businesses, emergency contacts and step-by-step instructions in Kiribati. Independent community information service.">
+  <meta name="theme-color" content="#0b5f8a">
+  <meta name="color-scheme" content="light dark">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta property="og:title" content="I-Kiribati Help">
+  <meta property="og:description" content="Find the help you need in Kiribati.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/icons/icon-512.png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#/" aria-label="I-Kiribati Help home">
+        <img src="assets/logo.svg" alt="" width="32" height="32">
+        <span class="brand-name">I-KIRIBATI HELP</span>
+      </a>
+      <nav class="header-actions" aria-label="Main">
+        <span id="offline-badge" class="offline-badge" hidden>Offline</span>
+        <button id="install-btn" class="btn btn-small btn-ghost" type="button" hidden data-i18n="install">Install app</button>
+        <a class="btn btn-small btn-sos" href="#/category/emergency"><span aria-hidden="true">🆘</span> <span data-i18n="nav.emergency">Emergency</span></a>
+        <button id="lang-btn" class="btn btn-small btn-ghost" type="button" data-i18n="nav.language" data-i18n-attr="aria-label:nav.languageLabel" lang="gil">Kiribati</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <noscript>
+      <h1>I-Kiribati Help</h1>
+      <p>Please turn on JavaScript to search. In an emergency call <strong>Police 192</strong>, <strong>Fire 193</strong> or <strong>Ambulance 194</strong>.</p>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="#/about" data-i18n="footer.about">About</a></li>
+          <li><a href="#/contact" data-i18n="footer.contact">Contact</a></li>
+          <li><a href="#/report?type=other" data-i18n="footer.report">Report incorrect information</a></li>
+          <li><a href="#/privacy" data-i18n="footer.privacy">Privacy</a></li>
+          <li><a href="#/terms" data-i18n="footer.terms">Terms</a></li>
+          <li><a href="#/sources" data-i18n="footer.sources">Sources</a></li>
+        </ul>
+      </nav>
+      <p class="disclaimer" data-i18n="footer.disclaimer">Independent community information service. Not an official Government of Kiribati website.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/config.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/search.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/filters.js" defer></script>
+  <script src="js/analytics.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

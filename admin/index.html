@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin – I-Kiribati Help</title>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../"><img src="../assets/logo.svg" alt="" width="32" height="32"><span class="brand-name">ADMIN</span></a>
+      <nav class="header-actions" aria-label="Admin">
+        <button id="logout" class="btn btn-small btn-ghost" type="button" hidden>Log out</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="admin" class="wrap" tabindex="-1">
+    <section id="login-view" hidden>
+      <h1 class="page-title">Admin login</h1>
+      <form id="login-form" class="report-form" autocomplete="off">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required maxlength="200">
+        <button class="btn btn-primary" type="submit">Log in</button>
+        <p id="login-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="muted">The API address is set in <code>js/config.js</code>. The password is set with <code>setAdminPassword()</code> in the Apps Script editor.</p>
+    </section>
+
+    <section id="app-view" hidden>
+      <nav class="tabs" role="tablist" aria-label="Sections">
+        <button role="tab" class="tab" data-tab="reports" aria-selected="true">Reports</button>
+        <button role="tab" class="tab" data-tab="services" aria-selected="false">Services</button>
+        <button role="tab" class="tab" data-tab="insights" aria-selected="false">Insights</button>
+      </nav>
+      <p id="admin-status" class="form-status" role="status" aria-live="polite"></p>
+      <div id="tab-content"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="../js/config.js" defer></script>
+  <script src="admin.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Lint
+        run: npm run lint
+      - name: Check data file
+        run: npm run validate
+      - name: Check Apps Script search copy is up to date
+        run: npm run sync-gas -- --check
+      - name: Unit + backend tests
+        run: npm test
+      - name: Browser tests
+        run: npm run test:e2e
